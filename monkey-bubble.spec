@@ -10,7 +10,7 @@ Source0:	http://home.gna.org/monkeybubble/downloads/%{name}-%{version}.tar.gz
 Patch0:		%{name}-gcc34.patch
 URL:		http://home.gna.org/monkeybubble/
 BuildRequires:	GConf2-devel
-BuildRequires:	gcc-c++
+BuildRequires:	autoconf
 BuildRequires:	gstreamer-GConf-devel >= 0.8.1
 BuildRequires:	librsvg-devel
 BuildRequires:	libgnomeui-devel
@@ -30,6 +30,7 @@ Monkey Bubble - klon gry bust'a'move dla GNOME.
 %patch0 -p1
 
 %build
+%{__autoconf}
 %configure
 %{__make}
 
