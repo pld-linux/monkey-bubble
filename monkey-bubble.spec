@@ -7,6 +7,7 @@ License:	GPL
 Group:		X11/Applications/Games
 Source0:	http://home.gna.org/monkeybubble/downloads/%{name}-%{version}.tar.gz
 # Source0-md5:	37e91fa4cdbab9ec06b2ee2a5aa0683c
+Patch0:		%{name}-gcc34.patch
 URL:		http://home.gna.org/monkeybubble/
 BuildRequires:	GConf2-devel
 BuildRequires:	gstreamer-GConf-devel >= 0.8.1
@@ -24,6 +25,7 @@ Monkey Bubble - klon gry bust'a'move dla GNOME.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %configure
