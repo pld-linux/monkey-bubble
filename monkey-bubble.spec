@@ -1,5 +1,5 @@
 Summary:	Monkey Bubble - the gnome bust'a'move clone
-Summary(pl):	Monkey Bubble - klon gry bust'a'move dla GNOME
+Summary(pl.UTF-8):   Monkey Bubble - klon gry bust'a'move dla GNOME
 Name:		monkey-bubble
 Version:	0.3.2
 Release:	1
@@ -22,7 +22,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Monkey Bubble - the gnome bust'a'move clone.
 
-%description -l pl
+%description -l pl.UTF-8
 Monkey Bubble - klon gry bust'a'move dla GNOME.
 
 %prep
