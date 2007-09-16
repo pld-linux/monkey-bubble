@@ -1,0 +1,77 @@
+diff -ur monkey-bubble-0.4.0-o/help/C/monkey-bubble.xml monkey-bubble-0.4.0/help/C/monkey-bubble.xml
+--- monkey-bubble-0.4.0-o/help/C/monkey-bubble.xml	2006-08-01 09:12:41.000000000 -0600
++++ monkey-bubble-0.4.0/help/C/monkey-bubble.xml	2007-09-16 00:31:17.000000000 -0600
+@@ -23,7 +23,7 @@
+       <publishername>GNOME Documentation Project</publishername> 
+     </publisher> 
+     <authorgroup> 
+-      <author> 
++      <author role='maintainer'> 
+ 	<firstname>Thomas</firstname> 
+ 	<surname>Cataldo</surname> 
+ 	<affiliation> 
+@@ -55,6 +55,9 @@
+ 	manual, follow the directions in the 
+ 	<ulink url="ghelp:gnome-feedback" type="help">GNOME Feedback Page</ulink>. </para>
+     </legalnotice> 
++		<abstract role='description'>
++			Fun game
++		</abstract>
+   </articleinfo> 
+ 
+   <indexterm> 
+diff -ur monkey-bubble-0.4.0-o/help/monkey-bubble.omf.in monkey-bubble-0.4.0/help/monkey-bubble.omf.in
+--- monkey-bubble-0.4.0-o/help/monkey-bubble.omf.in	2006-08-01 09:12:41.000000000 -0600
++++ monkey-bubble-0.4.0/help/monkey-bubble.omf.in	2007-09-16 00:31:00.000000000 -0600
+@@ -2,7 +2,7 @@
+ <omf>
+   <resource>
+     <creator>tom@aliacom.fr</creator>
+-    <maintainer>laurentb@aliacom.fr</maintainer>
++    <author role='maintainer'>laurentb@aliacom.fr</author>
+     <date>2004-01-08</date>
+     <subject category="GNOME|Games"/>
+     <type>manual</type>
+diff -ur monkey-bubble-0.4.0-o/src/net/Makefile.am monkey-bubble-0.4.0/src/net/Makefile.am
+--- monkey-bubble-0.4.0-o/src/net/Makefile.am	2004-06-15 01:13:36.000000000 -0600
++++ monkey-bubble-0.4.0/src/net/Makefile.am	2007-09-16 00:31:00.000000000 -0600
+@@ -28,10 +28,10 @@
+ monkey_srv_LDFLAGS =
+ 
+ monkey_srv_LDADD = \
+-	$(MONKEY_SRV_LIBS) \
+ 	libmonkeynet.a \
+ 	../monkey/libmonkey.a \
+-	../util/libmonkeyutil.a 
++	../util/libmonkeyutil.a \
++	$(MONKEY_SRV_LIBS)
+ 
+ $(libmonkeynet_a_OBJECTS): $(marshal_sources)
+ 
+diff -ur monkey-bubble-0.4.0-o/src/ui/Makefile.am monkey-bubble-0.4.0/src/ui/Makefile.am
+--- monkey-bubble-0.4.0-o/src/ui/Makefile.am	2006-08-01 07:47:04.000000000 -0600
++++ monkey-bubble-0.4.0/src/ui/Makefile.am	2007-09-16 00:31:00.000000000 -0600
+@@ -40,10 +40,10 @@
+ 
+ 
+ monkey_bubble_LDADD =  \
+-	$(UI_LIBS) \
+ 	../monkey/libmonkey.a \
+ 	../view/libmonkeyview.a \
+ 	../util/libmonkeyutil.a \
+ 	../net/libmonkeynet.a \
+ 	../audio/libmonkeyaudio.a \
+-	../input/libmbinput.a
++	../input/libmbinput.a \
++	$(UI_LIBS)
+diff -ur monkey-bubble-0.4.0-o/src/ui/ui-main.c monkey-bubble-0.4.0/src/ui/ui-main.c
+--- monkey-bubble-0.4.0-o/src/ui/ui-main.c	2006-08-01 07:47:04.000000000 -0600
++++ monkey-bubble-0.4.0/src/ui/ui-main.c	2007-09-16 00:31:00.000000000 -0600
+@@ -35,6 +35,7 @@
+ #include "keyboard-properties.h"
+ #include "sound-manager.h"
+ 
++#include <glib/gi18n.h>
+ #include <libgnomeui/gnome-about.h>
+ #include <libgnome/gnome-sound.h>
+ #include <libgnome/gnome-help.h>
