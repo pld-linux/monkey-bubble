@@ -30,7 +30,7 @@ Monkey Bubble - klon gry bust'a'move dla GNOME.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 %{__intltoolize}
